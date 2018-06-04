@@ -1,24 +1,12 @@
 import apple.laf.JRSUIUtils;
 
+
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(0);
-        ListNode cur = head;
-        for(int i = 1; i < 5; i++){
-            cur.next = new ListNode(i);
-            cur = cur.next;
-        }
-
-        ListNode show = rotateOne(head);
-        while(show != null){
-            System.out.println(show.val);
-            show = show.next;
-        }
-
 
 
     }
