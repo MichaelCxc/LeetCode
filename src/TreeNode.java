@@ -27,4 +27,33 @@ public class TreeNode {
         }
         return res;
     }
+
+    public int countNodes(TreeNode root) {
+        return countNodes(root,-1,-1);
+    }
+
+    private int countNodes(TreeNode root, int lheight, int rheight){
+        //count left side height
+        if(lheight == -1){
+            lheight = 0;
+            TreeNode cur = root;
+            while(cur != null){
+                lheight++;
+                cur = cur.left;
+            }
+        }
+
+        //count right side height
+        if(rheight == -1){
+            rheight = 0;
+            TreeNode cur = root;
+            while(cur != null){
+                rheight++;
+                cur = cur.right;
+            }
+        }
+
+        if(lheight == rheight) return (1<<lheight) - 1;
+        return 1 + countNodes(root.left, lheight -1, -1) + countNodes(root.right, -1, rheight-1);
+    }
 }
